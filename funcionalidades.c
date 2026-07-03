@@ -243,6 +243,15 @@ typedef struct {
  * as arestas de saida do grafo como pares nao-direcionados (u, v, w). Cada
  * aresta u->v de peso w e registrada uma vez; para Prim tratamos qualquer
  * aresta como ligacao simetrica, entao nao e preciso duplicar o sentido.
+ *
+ * Uma estacao terminal (ultima de uma linha) so aparece como destino de uma
+ * aresta e nao possui arestas de saida: sua lista de adjacencias fica vazia.
+ * Assim como a funcionalidade [10] nao imprime vertices de lista vazia
+ * (grafoGetNumArestas == 0), a arvore de [12] nao deve incluir esses
+ * sumidouros puros. Por isso descartamos aqui qualquer aresta cujo DESTINO
+ * nao tenha arestas de saida: como esse destino seria sempre uma folha (nunca
+ * um vertice de passagem), remove-lo nao altera a MST entre as demais
+ * estacoes, apenas evita que ele seja anexado como filho extra.
  * Retorna a quantidade de arestas efetivamente coletadas. */
 static int coletarArestasND(const Grafo *g, int n, ArestaND *arestas) {
     int u, j, m = 0;
@@ -252,7 +261,8 @@ static int coletarArestasND(const Grafo *g, int n, ArestaND *arestas) {
         for (j = 0; j < numArestas; j++) {
             const Aresta *a = grafoGetAresta(g, u, j);
             int v = grafoBuscarVertice(g, arestaGetDestino(a));
-            if (v < 0) continue;                 /* destino inexistente: ignora */
+            if (v < 0) continue;                     /* destino inexistente: ignora */
+            if (grafoGetNumArestas(g, v) == 0) continue; /* destino e sumidouro puro: ignora */
 
             arestas[m].a = u;
             arestas[m].b = v;
