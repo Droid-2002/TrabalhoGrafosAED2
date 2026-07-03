@@ -28,4 +28,24 @@ void funcionalidade10(const char *arquivo);
  */
 void funcionalidade11(const char *arquivo);
 
+/*
+ * [12] Constroi a Arvore Geradora Minima (Prim) do grafo tratado como
+ * nao-direcionado, a partir da estacao de origem lida da entrada padrao
+ * (rotulo do campo seguido do valor entre aspas). Percorre a arvore em
+ * profundidade a partir da origem, imprimindo uma linha "atual, filho,
+ * distancia" por aresta. Em caso de origem inexistente ou falha, imprime
+ * a mensagem de erro.
+ *   arquivo: nome do arquivo binario de entrada.
+ */
+void funcionalidade12(const char *arquivo);
+
+/*
+ * [13] Conta os ciclos simples que partem da estacao de origem (lida da
+ * entrada padrao) e a ela retornam sem repetir vertices, no grafo tratado
+ * como direcionado. Imprime "Quantidade de ciclos: n" (ou -1 quando nao ha
+ * ciclo). Em caso de origem inexistente ou falha, imprime a mensagem de erro.
+ *   arquivo: nome do arquivo binario de entrada.
+ */
+void funcionalidade13(const char *arquivo);
+
 #endif /* FUNCIONALIDADES_H */

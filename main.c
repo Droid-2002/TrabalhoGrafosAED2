@@ -41,11 +41,19 @@ int main(void) {
             break;
 
         case 12:
-            /* TODO [12]: arvore geradora minima + busca em profundidade */
+            /* [12] arquivoEntrada.bin arquivoIndice.bin
+             *      nomeEstacaoOrigem "Origem" */
+            if (scanf("%255s", arquivo) != 1) return 0;
+            if (scanf("%255s", indice) != 1) return 0;
+            funcionalidade12(arquivo);
             break;
 
         case 13:
-            /* TODO [13]: contagem de ciclos simples a partir da origem */
+            /* [13] arquivoEntrada.bin arquivoIndice.bin
+             *      nomeEstacaoOrigem "Origem" */
+            if (scanf("%255s", arquivo) != 1) return 0;
+            if (scanf("%255s", indice) != 1) return 0;
+            funcionalidade13(arquivo);
             break;
 
         default:
