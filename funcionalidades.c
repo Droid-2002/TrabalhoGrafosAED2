@@ -4,7 +4,7 @@
  * Mateus Cardoso Vargas Saracuza - NUSP 13674087
  * Rafael Mendonça Duarte – NUSP 16817608 
  * 
- * funcionalidades.c - Implementacao das funcionalidades [10] e [11].
+ * funcionalidades.c - Implementacao das funcionalidades [10], [11], [12] e [13].
  * ============================================================================ */
 
 #include <stdio.h>
